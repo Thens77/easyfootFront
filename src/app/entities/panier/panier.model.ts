@@ -6,5 +6,5 @@ export interface IPanier{
 }
 
 export class Panier implements IPanier {
-  constructor(public id: number, public client: Client) {}
+  constructor(public id?: number, public client?: Client) {}
 }

@@ -42,7 +42,6 @@ export class ClubComponent implements OnInit {
      
     }, 3000);
 }
-
   private get() : void {
     this.clubService.getbyProp(this.idp).subscribe(data=> {
       this.clubs = data ;
@@ -54,7 +53,6 @@ export class ClubComponent implements OnInit {
  });
     })
   }
-
   getUser():void{
     this.proporietaireService.find(this.idp).subscribe(data=> {
       this.prop = data ;

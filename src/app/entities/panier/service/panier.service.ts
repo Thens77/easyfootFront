@@ -14,8 +14,11 @@ export class PanierService {
     return this.httpClient.get<IPanier[]>(`${this.baseURL}`);
   }
 
+  listByClient(id : number): Observable<IPanier[]> {
+    return this.httpClient.get<IPanier[]>(`${this.baseURL}/user/${id}`);
+  }
   find(id: number): Observable<IPanier[]> {
-    return this.httpClient.get<IPanier[]>(`${this.baseURL}/form/${id}`);
+    return this.httpClient.get<IPanier[]>(`${this.baseURL}/${id}`);
   }
 
   add(matiere: IPanier): Observable<IPanier> {

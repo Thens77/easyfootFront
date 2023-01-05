@@ -19,7 +19,7 @@ export class ListTerrain2Component implements OnInit {
     this.get();
   }
   private get() : void {
-    this.id =window.history.state.idc;
+    this.id = window.history.state.idc;
     this.terrainService.list(this.id!).subscribe(data=> {
       this.terrains = data ;
       this.terrains.forEach(element => {

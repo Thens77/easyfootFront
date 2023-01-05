@@ -1,3 +1,5 @@
+import { Panier } from "../panier/panier.model";
+
 export interface IClient {
   id?: number;
   prenom?: string;
@@ -7,6 +9,7 @@ export interface IClient {
   email?: string;
   number?: number;
   cin?: string;
+  panier? : Panier ;
 }
 export class Client implements IClient {
   constructor(
@@ -17,6 +20,7 @@ export class Client implements IClient {
     public password?: string,
     public email?: string,
     public number?: number,
-    public cin?: string
+    public cin?: string,
+    public panier? : Panier 
   ) {}
 }

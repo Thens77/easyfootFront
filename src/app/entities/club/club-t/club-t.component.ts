@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LoginService } from 'src/app/auth/login.service';
 import { Club } from '../club.model';
 import { ClubService } from '../service/club.service';
 
@@ -12,7 +13,7 @@ export class ClubTComponent implements OnInit {
   club: Club | undefined ;
   retrievedImage : any ;
   public idc? : number  ;
-  constructor(private activatedRoute :  ActivatedRoute, private serivce : ClubService) { }
+  constructor(private activatedRoute :  ActivatedRoute, private serivce : ClubService , public loginService : LoginService) { }
 
   ngOnInit(): void {
     this.idc =this.activatedRoute.snapshot.params["id"];

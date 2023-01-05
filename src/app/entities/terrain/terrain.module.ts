@@ -12,8 +12,7 @@ import { ListTerrain2Component } from './list-terrain2/list-terrain2.component';
   declarations: [
     TerrainDeleteComponent, 
     TerrainDetailComponent,
-    
-    
+
   ],
   imports: [],
 })

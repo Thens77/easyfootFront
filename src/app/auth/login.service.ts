@@ -20,15 +20,17 @@ export class LoginService {
     this._isLoggedIn$.next(!!token);
    }
    logout(){
-   
+
         localStorage.removeItem('token');
         localStorage.removeItem('userName');
         localStorage.removeItem('userId');
         localStorage.removeItem('role');
         this.isLoggedIn = false;
-       
         this._isLoggedIn$.next(false);
-        this.router.navigate(['home']);
+        window.location.href = '/home'
+        this.router.navigate(['/dashboard']);
+        console.log("logout")
+        
    }
 
   login(credentials: Login): any {

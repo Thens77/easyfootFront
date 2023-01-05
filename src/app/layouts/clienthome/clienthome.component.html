@@ -3,10 +3,11 @@
         <div class=header-upper>
             <div class=container>
                 <div class=row>
+
                     <ul>
-                        <li><a [routerLink]="['/clienthome']" style="color:aquamarine"> Home </a></li>
+                        <li><a >home</a></li>
                         <li><a  ><i class="fa fa-shopping-cart"></i> <span style="color:aquamarine" (click)="loginService.logout()">deconnexion<span
-                                        class=>0</span>)</span></a></li>
+                            class=>0</span>)</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -15,7 +16,7 @@
             <div class=container>
                 <div class=row>
                     <h1 class=logo>
-                        <a href=index-2.html><img [src]="club?.picByte" alt="image"></a>
+                        <a href=index-2.html><img src="../../assets/images/logo.png " alt=image></a>
                     </h1>
 
                     <div class=menubar>
@@ -27,34 +28,111 @@
                                 </div>
                                 <div class=nav-menu>
                                     <ul class="nav navbar-nav menu-bar">
-                                        <li><a [routerLink]="['home']">Club Home<span></span> <span></span>
+                                        <li><a [routerLink]="['/clienthome']" class=active>Home <span></span> <span></span>
                                                 <span></span> <span></span></a></li>
-                                        <li><a [routerLink]="['terrains']">Nos terrains<span></span> <span></span>
-                                                    <span></span> <span></span></a></li>
-                                        <li><a [routerLink]="['matches']">Trouver un match<span></span> <span></span>
-                                                        <span></span> <span></span></a></li>
-                                        <li><a href=about.html>about <span></span> <span></span> <span></span>
+                                        <li><a [routerLink]="['/clientreserv']">Mes reservation <span></span> <span></span> <span></span>
                                                 <span></span></a></li>
                                        
-                                        <li><a href=contact.html>contact <span></span> <span></span> <span></span>
-                                                <span></span></a></li>
-                                        
                                     </ul>
                                 </div>
                             </div>
                         </nav>
                     </div>
                     <div class=social><a href="https://www.facebook.com/templatespoint.net" class=facebook><i
-                                class="fa fa-facebook"></i></a> <a href="https://twitter.com/itobuztech" class=twitter><i
-                                class="fa fa-twitter"></i></a> <a href="https://www.behance.net/" class=behance><i
-                                class="fa fa-behance"></i></a></div>
+                                class="fa fa-facebook"></i></a> <a href="https://twitter.com/itobuztech" class=twitter><i class="fa fa-twitter"></i></a> <a href="https://www.behance.net/" class=behance><i class="fa fa-behance"></i></a></div>
                 </div>
             </div>
         </div>
     </header>
+    <div class=banner id=layerSlider style="width: 100%;">
+        <div class=ls-slide data-ls="transition3d: 33,15; slidedelay: 8000 ; durationin:0;">
+            <img src="../../../../assets/images/banner/background01.jpg" class=ls-bg alt="Slide background">
+
+            <div class="ls-l layercontent01" style="top: 50%; left: 50%; z-index:4;" data-ls="offsetxin:left; offsetxout:right; durationin: 4000; parallaxlevel: 8;"><img src="../../../../assets/images/banner/player.png" alt=innerimage class=img-responsive style="max-width: 100% !important ;"></div>
+            <img src="../../../../assets/images/banner/ball.png" alt=innerimage class="ls-l layercontent02" style=z-index:5; data-ls="offsetxin: right; offsetxout:left; rotatein:-360; easingin: easeoutquart; durationin: 4000; delayin: 250; parallaxlevel: -5;">
+            <img src="../../../../assets/images/banner/front_particles.png " alt=particles class=ls-l style="z-index:3; left:0;" data-ls="offsetxin: left; offsetxout:left; scalexin:50; easingin: easeoutquart; durationin: 3000; delayin: 250;">
+            <img src="../../../../assets/images/banner/back_particles.png " alt=particles class=ls-l style="z-index:3; left:50%;" data-ls="offsetxin: left; offsetxout:left; scalein:90; easingin: easeoutquart; durationin: 3000; delayin: 250;">
+
+            <h2 class="ls-l bannertext layercontent03" data-ls="offsetxin:left; rotatexin:90 ; durationin: 3500;">
+                action</h2>
+
+            <h2 class="ls-l bannertext01 italic01 layercontent04" data-ls="offsetxin:left; scalexin:9; durationin: 4000;">starts</h2>
+            <h4 class="ls-l bannertext02 layercontent05" data-ls="offsetxin:left; rotatexin:90 ; durationin: 4500;">
+                from</h4>
+
+            <h2 class="ls-l bannertext01 layercontent06" style="left: 87%; top:760px;" data-ls="offsetxin:left; flipxin:90 ; durationin: 5000;">21<sup>st</sup></h2>
+            <h6 class="ls-l bannertext03 layercontent07" data-ls="offsetxin:left; flipxin:90 ; durationin: 6000;">
+                july , 2015</h6>
+        </div>
+    </div>
+    <div class=banner-text>
+        <div class=container>
+            <div class=row>action start from 21<sup>st</sup> july , 2015.</div>
+        </div>
+    </div>
+    <section class="booking bg-smallwhite">
+        <div class=container>
+            <div class=booking-fig>
+                <h2>SCC football club</h2>
+            </div>
+            <div class=booking-content><a href=# class="btn btn-white">read more</a> <a href=bookTicket.html class="btn btn-red">book my
+                    ticket</a></div>
+
+
+        </div>
+    </section>
+    <section class=about>
+        <div class=container>
+            <div class=row>
+                <h2 class=heading>About <span>scc</span></h2>
+
+                <div class=about-wrap>
+                    <div class="tab-content nav-content">
+                        <p role=tabpanel class="tab-pane fade" id=matches>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim amet cumque quo at eius nulla, voluptates assumenda saepe, consequatur fuga sapiente. Quas optio adipisci dolor possimus quos, maiores aliquid placeat! nemo ab praesentium
+                            voluptatum, exercitationem ad quo tempore quam temporibus voluptates odio, qui laborum pariatur perferendis! Sapiente, itaque facilis deleniti unde?Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+
+                        <p role=tabpanel class="tab-pane active fade in" id=static>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim amet cumque quo at eius nulla, voluptates asaliquid placeat!Lorem ipsum dolor sit amet, consectetur adipisicing elit. nemo ab praesentium voluptatum, exercitationem
+                            ad quo tempore quam temporibus voluptates odio, qui laborum pariatur perferendis! Sapiente, itaque facilis deleniti unde?Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+
+                        <p role=tabpanel class="tab-pane fade" id=traning>Lorem ipsum dolor sit amet, consectetur adipisicing elit. s quos, maiores aliquid placeat! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse nemo ab praesentium voluptatum, exercitationem ad quo tempore quam temporibus
+                            voluptates odio, qui laborum pariatur perferendis! Sapiente, itaque facilis deleniti unde?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur expedita recusandae ullam autem ducimus consectetur sed iure sequi
+                            ratione architecto optio consequuntur atque dolor dolores asperiores illum, quam hic ab?
+                        </p>
+                    </div>
+                    <div class=nav-header id=aboutTab>
+                        <ul class="nav nav-tabs clearfix" role=tablist>
+                            <li><a href="#matches" aria-controls=matches role=tab data-toggle=tab>Matches</a></li>
+                            <li class=active><a href="#static" aria-controls=static role=tab data-toggle=tab>statics</a>
+                            </li>
+                            <li><a href=#traning aria-controls=traning role=tab data-toggle=tab>traning</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class=latestResult>
+        <div class=container>
+            <div class=row>
+                <h2 class=heading>latest <span>result</span></h2>
+
+                <div class="map-container"></div>
+                <div class="map-frame">
+                    <div id="map"></div>
+                </div>
+                <div class=" full result clearfix">
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
     
-    <router-outlet [id]="idc" ></router-outlet>
     
+   
+   
+   
     <footer class=footer-type01>
         <div class=container>
             <div class=row>
@@ -74,7 +152,8 @@
                         <ul class="widget-newsdetails clearfix">
                             <li class=clearfix>
                                 <a href="#" class=clearfix>
-                                    <div class=widget-pic style="background:url(../../../../assets/images/widget/widget01.jpg) center no-repeat"></div>
+                                    <div class=widget-pic style="background:url(../../../../assets/images/widget/widget01.jpg) center no-repeat">
+                                    </div>
                                     <div class=widget-newsinfo>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam soluta excepturi.
                                         </p>
@@ -85,7 +164,8 @@
                             </li>
                             <li class=clearfix>
                                 <a href="#" class=clearfix>
-                                    <div class=widget-pic style="background:url(../../../../assets/images/widget/widget02.jpg) center no-repeat"></div>
+                                    <div class=widget-pic style="background:url(../../../../assets/images/widget/widget02.jpg) center no-repeat">
+                                    </div>
                                     <div class=widget-newsinfo>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam soluta excepturi.
                                         </p>
@@ -96,7 +176,8 @@
                             </li>
                             <li class=clearfix>
                                 <a href="#" class=clearfix>
-                                    <div class=widget-pic style="background:url(../../../../assets/images/widget/widget03.jpg) center no-repeat"></div>
+                                    <div class=widget-pic style="background:url(../../../../assets/images/widget/widget03.jpg) center no-repeat">
+                                    </div>
                                     <div class=widget-newsinfo>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam soluta excepturi.
                                         </p>
@@ -196,10 +277,3 @@
         </div>
     </footer>
 </div>
-<script src="assets/js/vendor/vendor.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/vendor/apexcharts/apexcharts.min.js"></script>
-<script src="assets/js/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/vendor/quill/quill.min.js"></script>
-<script src="assets/js/vendor/simple-datatables/simple-datatables.js"></script>
-<script src="assets/js/vendor/tinymce/tinymce.min.js"></script>

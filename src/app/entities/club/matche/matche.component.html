@@ -1,60 +1,84 @@
 <div class=wrapper>
-    <header class=header-main>
-        <div class=header-upper>
-            <div class=container>
-                <div class=row>
-                    <ul>
-                        <li><a [routerLink]="['/clienthome']" style="color:aquamarine"> Home </a></li>
-                        <li><a  ><i class="fa fa-shopping-cart"></i> <span style="color:aquamarine" (click)="loginService.logout()">deconnexion<span
-                                        class=>0</span>)</span></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="header-lower clearfix">
-            <div class=container>
-                <div class=row>
-                    <h1 class=logo>
-                        <a href=index-2.html><img [src]="club?.picByte" alt="image"></a>
-                    </h1>
 
-                    <div class=menubar>
-                        <nav class=navbar>
-                            <div class=nav-wrapper>
-                                <div class=navbar-header>
-                                    <button type=button class=navbar-toggle><span class=sr-only>Toggle navigation</span>
-                                        <span class=icon-bar></span></button>
+    <div class="innerbannerwrap">
+        <div class="content"></div>
+        <div class="innerbanner" ><h2 class="bannerHeadline">Touver un <span>Match</span></h2></div>
+    </div>
+    <section class=innerpage_all_wrap>
+        <div class=container>
+            <div class=row>
+
+
+
+
+
+                <aside class=contentinner>
+                    <div class="bg-red shop_select clearfix">
+                        <div class=select_shopping>
+                            <form>
+                                <div class=form-group><label class=headline01>How many players</label>
+                                    <input [(ngModel)]="numberofJoin" [ngModelOptions]="{standalone: true}" (ngModelChange)="loadreserve()" type="number" onKeyPress="return false" min="0" class=form-control>
                                 </div>
-                                <div class=nav-menu>
-                                    <ul class="nav navbar-nav menu-bar">
-                                        <li><a [routerLink]="['home']">Club Home<span></span> <span></span>
-                                                <span></span> <span></span></a></li>
-                                        <li><a [routerLink]="['terrains']">Nos terrains<span></span> <span></span>
-                                                    <span></span> <span></span></a></li>
-                                        <li><a [routerLink]="['matches']">Trouver un match<span></span> <span></span>
-                                                        <span></span> <span></span></a></li>
-                                        <li><a href=about.html>about <span></span> <span></span> <span></span>
-                                                <span></span></a></li>
-                                       
-                                        <li><a href=contact.html>contact <span></span> <span></span> <span></span>
-                                                <span></span></a></li>
-                                        
-                                    </ul>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class=wrapper>
+
+                        <section class="innerpage_all_wrap bg-white">
+
+                            <div class=container>
+
+                                <div class=row>
+
+
+
+                                    <div class=innerWrapper>
+                                        <aside class=contentinner>
+                                            <h2 class=heading>Join <span>Team</span></h2>
+                                            <div class="bg-red headline01 clearfix">Liste des reservations</div>
+                                            <ul class=ticketInfo>
+                                                <li *ngFor="let club of join">
+                                                    <ul class="t_info headline01 clearfix">
+                                                        <li>{{club.reservedBy.name}} {{club.reservedBy.prenom}}</li>
+                                                        <li>
+
+                                                            <div class=" ticketInner_info paragraph02 headline01 clearfix">
+                                                                <p style="color: white;">
+                                                                    <b>Time : </b> {{club.creneau.heureDebut}} to {{club.creneau.heureDebut}} <br>
+                                                                    <b>Terrain description :</b> {{club.terrain.description}} <br>
+                                                                    <b>Date de match :</b> {{club.date}} <br>
+                                                                    <b>Reservation Complete :</b> {{club.etat}} <br>
+                                                                    <b>Nombre de joueurs Max : </b> {{club.terrain.nbrJoueurs}} <br>
+                                                                    <b>Nombre de joueur dans cette reservation : </b> {{club.nbrjoueur}}
+                                                                </p>
+                                                            </div>
+
+                                                        </li>
+                                                        <li>
+
+                                                            <a (click)="openDialog(club.id)" class="btn-small01 btn-green">join</a>
+                                                        </li>
+
+
+                                                    </ul>
+                                                </li>
+
+
+
+                                            </ul>
+
+                                        </aside>
+                                    </div>
                                 </div>
                             </div>
-                        </nav>
+                        </section>
                     </div>
-                    <div class=social><a href="https://www.facebook.com/templatespoint.net" class=facebook><i
-                                class="fa fa-facebook"></i></a> <a href="https://twitter.com/itobuztech" class=twitter><i
-                                class="fa fa-twitter"></i></a> <a href="https://www.behance.net/" class=behance><i
-                                class="fa fa-behance"></i></a></div>
-                </div>
+                </aside>
             </div>
         </div>
-    </header>
-    
-    <router-outlet [id]="idc" ></router-outlet>
-    
+    </section>
+
     <footer class=footer-type01>
         <div class=container>
             <div class=row>
@@ -74,7 +98,8 @@
                         <ul class="widget-newsdetails clearfix">
                             <li class=clearfix>
                                 <a href="#" class=clearfix>
-                                    <div class=widget-pic style="background:url(../../../../assets/images/widget/widget01.jpg) center no-repeat"></div>
+                                    <div class=widget-pic style="background:url(../../../../assets/images/widget/widget01.jpg) center no-repeat">
+                                    </div>
                                     <div class=widget-newsinfo>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam soluta excepturi.
                                         </p>
@@ -85,7 +110,8 @@
                             </li>
                             <li class=clearfix>
                                 <a href="#" class=clearfix>
-                                    <div class=widget-pic style="background:url(../../../../assets/images/widget/widget02.jpg) center no-repeat"></div>
+                                    <div class=widget-pic style="background:url(../../../../assets/images/widget/widget02.jpg) center no-repeat">
+                                    </div>
                                     <div class=widget-newsinfo>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam soluta excepturi.
                                         </p>
@@ -96,7 +122,8 @@
                             </li>
                             <li class=clearfix>
                                 <a href="#" class=clearfix>
-                                    <div class=widget-pic style="background:url(../../../../assets/images/widget/widget03.jpg) center no-repeat"></div>
+                                    <div class=widget-pic style="background:url(../../../../assets/images/widget/widget03.jpg) center no-repeat">
+                                    </div>
                                     <div class=widget-newsinfo>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam soluta excepturi.
                                         </p>
@@ -174,7 +201,7 @@
 
                     <div class=footer-container>
                         <ul class=clearfix>
-                            <li><a href="https://www.facebook.com/templatespoint.net" class=bigsocial-link><i
+                            <li><a href="https://www.facebook.com/TEMPLATESPOINT.NET" class=bigsocial-link><i
                                         class="fa fa-facebook"></i></a></li>
                             <li><a href="https://twitter.com/" class=bigsocial-link target=_blank><i
                                         class="fa fa-twitter"></i></a></li>
@@ -196,10 +223,3 @@
         </div>
     </footer>
 </div>
-<script src="assets/js/vendor/vendor.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/vendor/apexcharts/apexcharts.min.js"></script>
-<script src="assets/js/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/vendor/quill/quill.min.js"></script>
-<script src="assets/js/vendor/simple-datatables/simple-datatables.js"></script>
-<script src="assets/js/vendor/tinymce/tinymce.min.js"></script>

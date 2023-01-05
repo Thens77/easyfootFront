@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TerrainService } from '../service/terrain.service';
 import { Terrain } from '../terrain.model';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ReservationUpdateComponent } from '../../reservation/update/reservation-update.component';
 
 @Component({
   selector: 'app-terrain',
@@ -14,7 +16,7 @@ export class TerrainComponent implements OnInit {
   idc? : number | undefined ;
   id : number | undefined ;
   retrievedImage : any ;
-  constructor(protected activatedRoute:ActivatedRoute , private terrainService : TerrainService ,private router : Router) { }
+  constructor(private dialog : MatDialog , protected activatedRoute:ActivatedRoute , private terrainService : TerrainService ,private router : Router) { }
 
   ngOnInit(): void {
     this.get();
@@ -23,7 +25,8 @@ export class TerrainComponent implements OnInit {
 
   private get() : void {
    
-    this.idc =window.history.state.idc ;
+    this.idc =Number(this.activatedRoute.parent?.snapshot.params["id"]) ;
+    console.log(this.idc);
     this.terrainService.list(this.idc!).subscribe(data=> {
       this.terrains = data ;
       this.terrains.forEach(element => {
@@ -33,6 +36,14 @@ export class TerrainComponent implements OnInit {
       
       console.log(this.terrains)
     })
+  }
+
+  openReservationDialog(idt? : number): void {
+    const dialogRef = this.dialog.open(ReservationUpdateComponent, {
+      data : idt ,
+    });
+
+  
   }
 
 }

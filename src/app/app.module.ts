@@ -41,6 +41,10 @@ import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 import { CalendierComponent } from './entities/reservation/calendier/calendier.component';
+import { DialogMat, MatcheComponent } from './entities/club/matche/matche.component';
+import { ClienthomeComponent } from './layouts/clienthome/clienthome.component';
+import { ReservClientComponent } from './entities/reservation/reserv-client/reserv-client.component';
+import { AdminComponent } from './layouts/admin/admin.component';
 
 FullCalendarModule.registerPlugins([ 
   interactionPlugin,
@@ -75,7 +79,11 @@ FullCalendarModule.registerPlugins([
     SignInDialog,
     SignUpDialog,
     CalendierComponent,
-
+    MatcheComponent,
+    DialogMat,
+    ClienthomeComponent,
+    ReservClientComponent,
+    AdminComponent ,
 
   ],
   imports: [

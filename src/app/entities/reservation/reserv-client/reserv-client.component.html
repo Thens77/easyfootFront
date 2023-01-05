@@ -3,10 +3,11 @@
         <div class=header-upper>
             <div class=container>
                 <div class=row>
+
                     <ul>
-                        <li><a [routerLink]="['/clienthome']" style="color:aquamarine"> Home </a></li>
+                        <li><a >home</a></li>
                         <li><a  ><i class="fa fa-shopping-cart"></i> <span style="color:aquamarine" (click)="loginService.logout()">deconnexion<span
-                                        class=>0</span>)</span></a></li>
+                            class=>0</span>)</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -15,7 +16,7 @@
             <div class=container>
                 <div class=row>
                     <h1 class=logo>
-                        <a href=index-2.html><img [src]="club?.picByte" alt="image"></a>
+                        <a href=index-2.html><img src="../../assets/images/logo.png " alt=image></a>
                     </h1>
 
                     <div class=menubar>
@@ -27,34 +28,57 @@
                                 </div>
                                 <div class=nav-menu>
                                     <ul class="nav navbar-nav menu-bar">
-                                        <li><a [routerLink]="['home']">Club Home<span></span> <span></span>
+                                        <li><a [routerLink]="['/clienthome']" >Home <span></span> <span></span>
                                                 <span></span> <span></span></a></li>
-                                        <li><a [routerLink]="['terrains']">Nos terrains<span></span> <span></span>
-                                                    <span></span> <span></span></a></li>
-                                        <li><a [routerLink]="['matches']">Trouver un match<span></span> <span></span>
-                                                        <span></span> <span></span></a></li>
-                                        <li><a href=about.html>about <span></span> <span></span> <span></span>
+                                        <li><a [routerLink]="['/clientreserv']" class=active>Mes reservation <span></span> <span></span> <span></span>
                                                 <span></span></a></li>
                                        
-                                        <li><a href=contact.html>contact <span></span> <span></span> <span></span>
-                                                <span></span></a></li>
-                                        
                                     </ul>
                                 </div>
                             </div>
                         </nav>
                     </div>
                     <div class=social><a href="https://www.facebook.com/templatespoint.net" class=facebook><i
-                                class="fa fa-facebook"></i></a> <a href="https://twitter.com/itobuztech" class=twitter><i
-                                class="fa fa-twitter"></i></a> <a href="https://www.behance.net/" class=behance><i
-                                class="fa fa-behance"></i></a></div>
+                                class="fa fa-facebook"></i></a> <a href="https://twitter.com/itobuztech" class=twitter><i class="fa fa-twitter"></i></a> <a href="https://www.behance.net/" class=behance><i class="fa fa-behance"></i></a></div>
                 </div>
             </div>
         </div>
     </header>
     
-    <router-outlet [id]="idc" ></router-outlet>
+     
+    <section class=latestResult>
+        <div class=container>
+            
+
+            <li *ngFor="let rese of reserv" role="presentation" class="active">
+                <a href="#one" aria-controls="one" role="tab" data-toggle="tab">
+                    <div class="tg-ticket">
+                        <time class="tg-matchdate" datetime="2016-05-03">{{rese.reservation.id}}<span></span></time>
+                        <div class="tg-matchdetail">
+                            <span class="tg-theme-tag"><span>Date </span> {{rese.reservation.date}}</span>
+                            <h4> <span>Terrain </span> {{rese.reservation.terrain?.description}} </h4>
+                            <ul class="tg-matchmetadata">
+                                <li><time datetime="2016-05-03">De {{rese.reservation.creneau?.heureDebut}} a {{rese.reservation.creneau?.heureFin}}</time></li>
+                                <li><address></address></li>
+                            </ul>
+                        </div>
+                        <div class="tg-btnsbox" *ngIf="rese.reservation.etat===false">
+                            <span class="tg-btn" (click)="diss(rese.id)">Supprimer</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+
+
+
+
+        </div>
+    </section>
     
+    
+   
+   
+   
     <footer class=footer-type01>
         <div class=container>
             <div class=row>
@@ -74,7 +98,8 @@
                         <ul class="widget-newsdetails clearfix">
                             <li class=clearfix>
                                 <a href="#" class=clearfix>
-                                    <div class=widget-pic style="background:url(../../../../assets/images/widget/widget01.jpg) center no-repeat"></div>
+                                    <div class=widget-pic style="background:url(../../../../assets/images/widget/widget01.jpg) center no-repeat">
+                                    </div>
                                     <div class=widget-newsinfo>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam soluta excepturi.
                                         </p>
@@ -85,7 +110,8 @@
                             </li>
                             <li class=clearfix>
                                 <a href="#" class=clearfix>
-                                    <div class=widget-pic style="background:url(../../../../assets/images/widget/widget02.jpg) center no-repeat"></div>
+                                    <div class=widget-pic style="background:url(../../../../assets/images/widget/widget02.jpg) center no-repeat">
+                                    </div>
                                     <div class=widget-newsinfo>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam soluta excepturi.
                                         </p>
@@ -96,7 +122,8 @@
                             </li>
                             <li class=clearfix>
                                 <a href="#" class=clearfix>
-                                    <div class=widget-pic style="background:url(../../../../assets/images/widget/widget03.jpg) center no-repeat"></div>
+                                    <div class=widget-pic style="background:url(../../../../assets/images/widget/widget03.jpg) center no-repeat">
+                                    </div>
                                     <div class=widget-newsinfo>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam soluta excepturi.
                                         </p>
@@ -196,10 +223,3 @@
         </div>
     </footer>
 </div>
-<script src="assets/js/vendor/vendor.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/vendor/apexcharts/apexcharts.min.js"></script>
-<script src="assets/js/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/vendor/quill/quill.min.js"></script>
-<script src="assets/js/vendor/simple-datatables/simple-datatables.js"></script>
-<script src="assets/js/vendor/tinymce/tinymce.min.js"></script>

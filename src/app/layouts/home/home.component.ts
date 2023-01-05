@@ -8,6 +8,8 @@ import { Login } from 'src/app/auth/login.model';
 import { LoginService } from 'src/app/auth/login.service';
 import { TokenStorageService } from 'src/app/config/token-storage.service';
 import { Client } from 'src/app/entities/client/client.model';
+import { UsersService } from 'src/app/entities/users/service/users.service';
+import { Users } from 'src/app/entities/users/users.model';
 import { RegisterC, RegisterP } from 'src/app/signup/register.model';
 import { SignupService } from 'src/app/signup/signup.service';
 
@@ -21,6 +23,7 @@ export class HomeComponent implements OnInit {
   [x: string]: any;
   token = localStorage.getItem('token');
    login:  Login = new Login();
+   logged! : boolean ;
    constructor(
      public dialog: MatDialog,
      public loginSerive : LoginService
@@ -30,7 +33,11 @@ export class HomeComponent implements OnInit {
    }
  
    ngOnInit(): void {
-    
+      if(localStorage.getItem("userId")!==undefined){
+          this.logged = true ;
+      }else{
+        this.logged = false
+      }
    }
  
    openSignInDialog(): void {
@@ -83,10 +90,11 @@ export class SignInDialog {
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
+  user! : Users ;
   constructor(
     public dialogRef: MatDialogRef<SignInDialog>,
     private loginService : LoginService,
-    
+    private userservice : UsersService ,
     private router : Router,
     protected fb: UntypedFormBuilder ,
     private tokenStorage: TokenStorageService,
@@ -103,14 +111,29 @@ export class SignInDialog {
     let username = 
     this.loginService.login(new Login(this.editForm.get(['username'])!.value,this.editForm.get(['password'])!.value.toLowerCase())).subscribe(
       (  data: { accessToken: string; }) => {
+        let role = localStorage.getItem("role") ;
         this.dialogRef.close();
-        this.router.navigate(['dashboard']);
+        if(role === "PROP"){
+          this.router.navigate(['dashboard']);
+        }
+        if(role === "CLIENT"){
+          this.router.navigate(['clienthome']);
+        }if(role === "ADMIN"){
+          this.router.navigate(['admin']);
+        }
+        
+
+        
       },
       (      err: any) => {
         this.errorMessage = 'Utilisateur ou mot de passe incorrect';
         this.isLoginFailed = true;
       }
     );
+  }
+
+  getUser():void{
+    
   }
 }
 
@@ -248,7 +271,7 @@ export class SignUpDialog {
       (  data: { accessToken: string; }) => {
        
         this.dialogRef.close();
-        this.router.navigate(['dashboard/']);
+        this.router.navigate(['clienthome/']);
       },
       (      err: any) => {
         console.log(err.error.message)

@@ -4,6 +4,7 @@ import { ClubDeleteComponent } from './delete/club-delete.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { ClubUpdateComponent } from './update/club-update.component'; 
 import { RouterModule } from '@angular/router';
+import { MatcheComponent } from './matche/matche.component';
 
 
 @NgModule({
