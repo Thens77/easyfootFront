@@ -20,7 +20,6 @@ export class LoginService {
     this._isLoggedIn$.next(!!token);
    }
    logout(){
-
         localStorage.removeItem('token');
         localStorage.removeItem('userName');
         localStorage.removeItem('userId');

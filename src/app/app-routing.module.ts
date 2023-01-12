@@ -28,6 +28,7 @@ import { NavbarComponentT } from './layouts/navbarT/navbar.component';
 
 const routes: Routes = [
   {path:"home" , component :  HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path:"admin" , component :  AdminComponent },
   {path:"clientreserv" , component :  ReservClientComponent },
   {path:"clienthome" , component :  ClienthomeComponent , canActivate : [AuthGuard2] },
